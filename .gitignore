@@ -1,0 +1,9 @@
+# Godot cache
+.godot/
+
+# Export presets (contain paths specific to each developer's machine)
+export_presets.cfg
+
+# Mono/C# (not used but harmless)
+.mono/
+data_*/

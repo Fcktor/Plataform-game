@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://cxo76ogoax2vr"]
+
+[ext_resource type="PackedScene" uid="uid://daeue3gxwsgpi" path="res://player.tscn" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://8uf7jf4g8x5x" path="res://scripts/moving_plataform.gd" id="2_hbghi"]
+[ext_resource type="Script" uid="uid://munpjw5yr1w6" path="res://scripts/fall_plataform.gd" id="3_hn12h"]
+[ext_resource type="Script" uid="uid://xm7wpyhgyare" path="res://scripts/blink_plataform.gd" id="4_ihfcg"]
+[ext_resource type="Script" uid="uid://bk2o2lr4rnre0" path="res://scripts/bounce_plataform.gd" id="5_rka8t"]
+[ext_resource type="Script" uid="uid://bry7pyucn6x0o" path="res://scripts/ice_plataform.gd" id="6_5hph3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yx50v"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o3wy2"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hn12h"]
+
+[sub_resource type="Sky" id="Sky_hbghi"]
+sky_material = SubResource("ProceduralSkyMaterial_hn12h")
+
+[sub_resource type="Environment" id="Environment_o3wy2"]
+background_mode = 2
+sky = SubResource("Sky_hbghi")
+
+[sub_resource type="BoxMesh" id="BoxMesh_tm4em"]
+size = Vector3(4, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yx50v"]
+size = Vector3(4, 0.5, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oj0p3"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tm4em"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mbea8"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r1ptt"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r1ptt"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwl2g"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jwl2g"]
+size = Vector3(3, 0.5, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qbmfu"]
+size = Vector3(3, 0.5, 3)
+
+[node name="Level1" type="Node3D" unique_id=1774772952]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1995718900]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=695614287]
+mesh = SubResource("BoxMesh_yx50v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=938309419]
+shape = SubResource("BoxShape3D_o3wy2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1085384416]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1158632308]
+environment = SubResource("Environment_o3wy2")
+
+[node name="Player" parent="." unique_id=166849840 instance=ExtResource("1_3hls8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="MovingPlataform" type="StaticBody3D" parent="." unique_id=525128369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -5)
+script = ExtResource("2_hbghi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlataform" unique_id=467216013]
+mesh = SubResource("BoxMesh_tm4em")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlataform" unique_id=1492460435]
+shape = SubResource("BoxShape3D_yx50v")
+
+[node name="FallPlataform" type="StaticBody3D" parent="." unique_id=478436505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, -5)
+script = ExtResource("3_hn12h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FallPlataform" unique_id=1864851031]
+mesh = SubResource("BoxMesh_oj0p3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FallPlataform" unique_id=1421958928]
+shape = SubResource("BoxShape3D_tm4em")
+
+[node name="BlinkPlataform" type="StaticBody3D" parent="." unique_id=1935934819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -5)
+script = ExtResource("4_ihfcg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BlinkPlataform" unique_id=1007921415]
+mesh = SubResource("BoxMesh_mbea8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlinkPlataform" unique_id=1794742443]
+shape = SubResource("BoxShape3D_r1ptt")
+
+[node name="BouncePlataform" type="StaticBody3D" parent="." unique_id=930345092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 1)
+script = ExtResource("5_rka8t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BouncePlataform" unique_id=1672855498]
+mesh = SubResource("BoxMesh_r1ptt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePlataform" unique_id=1823310186]
+shape = SubResource("BoxShape3D_jwl2g")
+
+[node name="IcePlataform" type="StaticBody3D" parent="." unique_id=1707768239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+script = ExtResource("6_5hph3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="IcePlataform" unique_id=852621300]
+mesh = SubResource("BoxMesh_jwl2g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IcePlataform" unique_id=734448647]
+shape = SubResource("BoxShape3D_qbmfu")
