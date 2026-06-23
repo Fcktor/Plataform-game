@@ -5,13 +5,23 @@ const JUMP_VELOCITY = 8.0
 const GRAVITY = 20.0
 
 var on_ice = false
+var jumps_left := 0
+var max_jumps := 2
 
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= GRAVITY * delta
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if is_on_floor():
+		jumps_left = max_jumps
+
+	if Input.is_action_just_pressed("ui_accept"):
+		if is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			jumps_left = max_jumps - 1
+		elif jumps_left > 0:
+			velocity.y = JUMP_VELOCITY
+			jumps_left -= 1
 
 	var dir = Vector3.ZERO
 	if Input.is_action_pressed("ui_right"): dir.x += 1

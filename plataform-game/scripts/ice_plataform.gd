@@ -6,7 +6,7 @@ func _ready():
 	await get_tree().process_frame
 	player = get_tree().root.find_child("Player", true, false)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player:
 		var pp = player.global_position
 		var mp = global_position

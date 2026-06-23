@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://xm7wpyhgyare" path="res://scripts/blink_plataform.gd" id="4_ihfcg"]
 [ext_resource type="Script" uid="uid://bk2o2lr4rnre0" path="res://scripts/bounce_plataform.gd" id="5_rka8t"]
 [ext_resource type="Script" uid="uid://bry7pyucn6x0o" path="res://scripts/ice_plataform.gd" id="6_5hph3"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_yx50v"]
 size = Vector3(30, 1, 30)
 
@@ -51,6 +50,10 @@ size = Vector3(3, 0.5, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbmfu"]
 size = Vector3(3, 0.5, 3)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o3wy2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qbmfu"]
 
 [node name="Level1" type="Node3D" unique_id=1774772952]
 
@@ -120,3 +123,4 @@ mesh = SubResource("BoxMesh_jwl2g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IcePlataform" unique_id=734448647]
 shape = SubResource("BoxShape3D_qbmfu")
+
