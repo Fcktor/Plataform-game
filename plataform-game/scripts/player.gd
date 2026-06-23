@@ -7,6 +7,10 @@ const GRAVITY = 20.0
 var on_ice = false
 var jumps_left := 0
 var max_jumps := 2
+var spawn_position = Vector3.ZERO
+
+func _ready():
+	spawn_position = position
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -38,3 +42,10 @@ func _physics_process(delta):
 
 	on_ice = false
 	move_and_slide()
+
+	if position.y < -10.0:
+		_respawn()
+
+func _respawn():
+	position = spawn_position
+	velocity = Vector3.ZERO

@@ -1,16 +1,11 @@
-[gd_scene format=3 uid="uid://cxo76ogoax2vr"]
+[gd_scene format=3 uid="uid://bhiaw1md23oyf"]
 
-[ext_resource type="PackedScene" uid="uid://daeue3gxwsgpi" path="res://player.tscn" id="1_3hls8"]
+[ext_resource type="PackedScene" uid="uid://cpxglwhepv3yn" path="res://player.tscn" id="1_3hls8"]
 [ext_resource type="Script" uid="uid://8uf7jf4g8x5x" path="res://scripts/moving_plataform.gd" id="2_hbghi"]
 [ext_resource type="Script" uid="uid://munpjw5yr1w6" path="res://scripts/fall_plataform.gd" id="3_hn12h"]
 [ext_resource type="Script" uid="uid://xm7wpyhgyare" path="res://scripts/blink_plataform.gd" id="4_ihfcg"]
 [ext_resource type="Script" uid="uid://bk2o2lr4rnre0" path="res://scripts/bounce_plataform.gd" id="5_rka8t"]
 [ext_resource type="Script" uid="uid://bry7pyucn6x0o" path="res://scripts/ice_plataform.gd" id="6_5hph3"]
-[sub_resource type="BoxMesh" id="BoxMesh_yx50v"]
-size = Vector3(30, 1, 30)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_o3wy2"]
-size = Vector3(30, 1, 30)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hn12h"]
 
@@ -51,19 +46,10 @@ size = Vector3(3, 0.5, 3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbmfu"]
 size = Vector3(3, 0.5, 3)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o3wy2"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_qbmfu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o3wy2"]
+albedo_color = Color(0, 0.5803922, 0, 1)
 
 [node name="Level1" type="Node3D" unique_id=1774772952]
-
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1995718900]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=695614287]
-mesh = SubResource("BoxMesh_yx50v")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=938309419]
-shape = SubResource("BoxShape3D_o3wy2")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1085384416]
 transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
@@ -124,3 +110,21 @@ mesh = SubResource("BoxMesh_jwl2g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IcePlataform" unique_id=734448647]
 shape = SubResource("BoxShape3D_qbmfu")
 
+[node name="Terrain" type="CSGCombiner3D" parent="." unique_id=521935261]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Terrain" unique_id=264787054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
+size = Vector3(1, 0.001, 1)
+material = SubResource("StandardMaterial3D_o3wy2")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Terrain" unique_id=50709438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6305964, 0, 1.9031416)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Terrain" unique_id=492188646]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Terrain" unique_id=1948606609]
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Terrain" unique_id=1293877200]
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Terrain" unique_id=958441536]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Plataform-game"
-run/main_scene="uid://cxo76ogoax2vr"
+run/main_scene="uid://bhiaw1md23oyf"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
 
 [physics]
 
